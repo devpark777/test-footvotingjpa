@@ -1,0 +1,131 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fff8e7;
+    color: #333;
+}
+
+.container {
+    width: 850px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 22px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+}
+
+h1 {
+    text-align: center;
+    color: #ff7a00;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 18px;
+    color: #777;
+}
+
+.winner-box {
+    background: #fff0c2;
+    border: 2px solid #ffc107;
+    padding: 20px;
+    border-radius: 18px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.winner-img {
+    width: 220px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.form-box,
+.list-box {
+    margin-top: 25px;
+}
+
+.form-box form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+input[type="file"] {
+    width: 220px;
+}
+
+button {
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.form-box button {
+    background: #ff7a00;
+    color: white;
+}
+
+.food-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.food-card {
+    background: #fafafa;
+    padding: 15px;
+    border-radius: 18px;
+    border: 1px solid #eee;
+    text-align: center;
+}
+
+.food-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+
+.food-info {
+    flex: 1;
+}
+
+.food-info h3 {
+    margin-top: 0;
+}
+
+.button-group {
+    display: flex;
+    gap: 8px;
+}
+
+.button-group form {
+    display: inline;
+}
+
+.vote-btn {
+    background: #4caf50;
+    color: white;
+}
+
+.delete-btn {
+    background: #f44336;
+    color: white;
+}
+
+button:hover {
+    opacity: 0.85;
+}

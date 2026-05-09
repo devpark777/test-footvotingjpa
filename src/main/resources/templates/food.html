@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Food Voting App</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>🍔 Food Voting App</h1>
+    <p class="subtitle">Upload food photos and vote for your favorite food!</p>
+
+    <div class="winner-box" th:if="${winner != null}">
+        <h2>🏆 Current Winner</h2>
+
+        <img th:if="${winner.imageName != null}"
+             th:src="@{'/uploads/' + ${winner.imageName}}"
+             class="winner-img">
+
+        <p>
+            <strong th:text="${winner.name}">Pizza</strong>
+            -
+            <span th:text="${winner.voteCount}">0</span>
+            votes
+        </p>
+    </div>
+
+    <div class="form-box">
+        <h2>Add New Food</h2>
+
+        <form action="/food/add" method="post" enctype="multipart/form-data">
+            <input type="text" name="name" placeholder="Enter food name" required>
+            <input type="file" name="image" accept="image/*" required>
+            <button type="submit">Add Food</button>
+        </form>
+    </div>
+
+    <div class="list-box">
+        <h2>Food List</h2>
+
+        <div th:if="${#lists.isEmpty(foods)}">
+            <p>No food yet. Add your favorite food!</p>
+        </div>
+
+        <div class="food-grid">
+            <div class="food-card" th:each="food : ${foods}">
+
+                <img th:if="${food.imageName != null}"
+                     th:src="@{'/uploads/' + ${food.imageName}}"
+                     class="food-img">
+
+                <div class="food-info">
+                    <h3 th:text="${food.name}">Food Name</h3>
+
+                    <p>
+                        Votes:
+                        <span th:text="${food.voteCount}">0</span>
+                    </p>
+
+                    <div class="button-group">
+                        <form action="/food/vote" method="post">
+                            <input type="hidden" name="id" th:value="${food.id}">
+                            <button class="vote-btn" type="submit">Vote 👍</button>
+                        </form>
+
+                        <form action="/food/delete" method="post">
+                            <input type="hidden" name="id" th:value="${food.id}">
+                            <button class="delete-btn" type="submit">Delete</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
